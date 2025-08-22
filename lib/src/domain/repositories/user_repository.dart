@@ -14,7 +14,7 @@ class UserRepository {
     
   }
 
-  Future<UserModel> getUser(int id) async {
+  Future<UserModel> getUser(String id) async {
     final response = await dioClient.dio.get("users/$id");
     return UserModel.fromJson(response.data['data']);
   }

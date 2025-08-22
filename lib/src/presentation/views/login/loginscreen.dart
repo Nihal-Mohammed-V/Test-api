@@ -58,13 +58,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
               context.router.push(HomeRoute());
             } else if (state is AuthFailure) {
+              
 
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Login failed: ${state.message}'),
+                  
                   backgroundColor: Colors.red,
                 ),
-              );
+              );print(state.message);
             }
           },
           child: Center(
@@ -103,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 20),
 
-                    // Password Field
+                  
                     TextFormField(
                       controller: _passwordController,
                       obscureText: true,
@@ -161,7 +163,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     const SizedBox(height: 20),
 
-                    // Optional: Test credentials hint
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(12),
@@ -180,11 +181,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           const SizedBox(height: 4),
-                          Text(
+                          SelectableText(
                             "Email: eve.holt@reqres.in",
                             style: TextStyle(color: Colors.grey[600]),
                           ),
-                          Text(
+                          SelectableText(
                             "Password: cityslicka",
                             style: TextStyle(color: Colors.grey[600]),
                           ),

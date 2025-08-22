@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 class DioClient {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: "https://reqres.in/api/reqres-free-v1",
+      baseUrl: "https://reqres.in/api",
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
       

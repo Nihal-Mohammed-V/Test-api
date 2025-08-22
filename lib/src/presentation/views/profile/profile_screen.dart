@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class ProfileScreen extends StatelessWidget {
-  final int userId;
+  final String userId;
 
   const ProfileScreen({super.key, required this.userId});
 

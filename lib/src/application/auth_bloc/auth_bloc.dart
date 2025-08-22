@@ -16,6 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthSuccess(token));
       } catch (e) {
         emit(AuthFailure(e.toString()));
+        print('${event.email} ${event.password}');
       }
     });
   }

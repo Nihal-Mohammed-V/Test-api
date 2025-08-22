@@ -1,7 +1,5 @@
-
 import 'package:api_test/src/infrastructure/services/dio_client.dart';
 import 'package:dio/dio.dart';
-
 
 class AuthRepository {
   final DioClient dioClient;
@@ -18,15 +16,14 @@ class AuthRepository {
       throw Exception(e.response?.data['error'] ?? "Login failed");
     }
   }
-  final authRepo = AuthRepository(DioClient());
 
-void testLogin() async {
-  try {
-    final token = await authRepo.login("eve.holt@reqres.in", "cityslicka");
-    print("Login successful! Token: $token");
-  } catch (e) {
-    print("Login failed: $e");
+
+  Future<void> testLogin() async {
+    try {
+      final token = await login("eve.holt@reqres.in", "cityslicka");
+      print("Login successful! Token: $token");
+    } catch (e) {
+      print("Login failed: $e");
+    }
   }
-}
-
 }

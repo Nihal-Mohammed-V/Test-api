@@ -53,7 +53,7 @@ class LoginRoute extends _i4.PageRouteInfo<void> {
 class ProfileRoute extends _i4.PageRouteInfo<ProfileRouteArgs> {
   ProfileRoute({
     _i5.Key? key,
-    required int userId,
+    required String userId,
     List<_i4.PageRouteInfo>? children,
   }) : super(
          ProfileRoute.name,
@@ -77,7 +77,7 @@ class ProfileRouteArgs {
 
   final _i5.Key? key;
 
-  final int userId;
+  final String userId;
 
   @override
   String toString() {
