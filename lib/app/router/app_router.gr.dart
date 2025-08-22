@@ -33,17 +33,17 @@ class HomeRoute extends _i4.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.Loginscreen]
-class Loginscreen extends _i4.PageRouteInfo<void> {
-  const Loginscreen({List<_i4.PageRouteInfo>? children})
-    : super(Loginscreen.name, initialChildren: children);
+/// [_i2.LoginScreen]
+class LoginRoute extends _i4.PageRouteInfo<void> {
+  const LoginRoute({List<_i4.PageRouteInfo>? children})
+    : super(LoginRoute.name, initialChildren: children);
 
-  static const String name = 'Loginscreen';
+  static const String name = 'LoginRoute';
 
   static _i4.PageInfo page = _i4.PageInfo(
     name,
     builder: (data) {
-      return const _i2.Loginscreen();
+      return const _i2.LoginScreen();
     },
   );
 }
@@ -53,11 +53,11 @@ class Loginscreen extends _i4.PageRouteInfo<void> {
 class ProfileRoute extends _i4.PageRouteInfo<ProfileRouteArgs> {
   ProfileRoute({
     _i5.Key? key,
-    required String user,
+    required int userId,
     List<_i4.PageRouteInfo>? children,
   }) : super(
          ProfileRoute.name,
-         args: ProfileRouteArgs(key: key, user: user),
+         args: ProfileRouteArgs(key: key, userId: userId),
          initialChildren: children,
        );
 
@@ -67,30 +67,30 @@ class ProfileRoute extends _i4.PageRouteInfo<ProfileRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<ProfileRouteArgs>();
-      return _i3.ProfileScreen(key: args.key, user: args.user);
+      return _i3.ProfileScreen(key: args.key, userId: args.userId);
     },
   );
 }
 
 class ProfileRouteArgs {
-  const ProfileRouteArgs({this.key, required this.user});
+  const ProfileRouteArgs({this.key, required this.userId});
 
   final _i5.Key? key;
 
-  final String user;
+  final int userId;
 
   @override
   String toString() {
-    return 'ProfileRouteArgs{key: $key, user: $user}';
+    return 'ProfileRouteArgs{key: $key, userId: $userId}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ProfileRouteArgs) return false;
-    return key == other.key && user == other.user;
+    return key == other.key && userId == other.userId;
   }
 
   @override
-  int get hashCode => key.hashCode ^ user.hashCode;
+  int get hashCode => key.hashCode ^ userId.hashCode;
 }
