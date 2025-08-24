@@ -5,9 +5,9 @@ import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
 
-Future<void> initDependencies() async {
-  sl.registerLazySingleton<DioClient>(() => DioClient());
+//Future<void> initDependencies() async {
+  //sl.registerLazySingleton<DioClient>(() => DioClient());
 
-  sl.registerLazySingleton<AuthRepository>(() => AuthRepository(sl()));
-  sl.registerLazySingleton<UserRepository>(() => UserRepository(sl()));
-}
+  //sl.registerLazySingleton<AuthRepository>(() => AuthRepository(sl()));
+  //sl.registerLazySingleton<UserRepository>(() => UserRepository(sl()));
+//}
