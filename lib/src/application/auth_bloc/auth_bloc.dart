@@ -2,9 +2,6 @@ import 'package:api_test/src/application/auth_bloc/auth_event.dart';
 import 'package:api_test/src/application/auth_bloc/auth_state.dart';
 import 'package:api_test/src/domain/repositories/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
-
-@injectable
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository authRepository;
@@ -13,10 +10,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthLoading());
       try {
         final token = await authRepository.login(event.email, event.password);
-        emit(AuthSuccess(token));
+        emit(AuthSuccess(token as String));
       } catch (e) {
         emit(AuthFailure(e.toString()));
-        print('${event.email} ${event.password}');
       }
     });
   }

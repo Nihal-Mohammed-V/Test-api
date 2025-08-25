@@ -1,4 +1,3 @@
-
 import 'package:api_test/src/application/user/user_bloc.dart';
 import 'package:api_test/src/application/user/user_event.dart';
 import 'package:api_test/src/application/user/user_state.dart';
@@ -21,7 +20,6 @@ class HomeScreen extends StatelessWidget {
       body: BlocBuilder<UserBloc, UserState>(
         builder: (context, state) {
           if (state is UserInitial) {
-           
             context.read<UserBloc>().add(FetchUsers());
             return const Center(child: CircularProgressIndicator());
           } else if (state is UserLoading) {
@@ -33,7 +31,10 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final user = users[index];
                 return Card(
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 8,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -43,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                       backgroundImage: NetworkImage(user.avatar),
                       radius: 28,
                     ),
-                  
+
                     subtitle: Text(user.email),
                     trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                     onTap: () {
@@ -52,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (_) => BlocProvider.value(
                             value: context.read<UserBloc>(),
-                            child: ProfileScreen(userId: user.id, ),
+                            child: ProfileScreen(userId: user.id.toString()),
                           ),
                         ),
                       );
@@ -63,7 +64,6 @@ class HomeScreen extends StatelessWidget {
             );
           } else if (state is UserError) {
             return Center(child: Text("Error: ${state.error}"));
-            
           }
           return const SizedBox.shrink();
         },
